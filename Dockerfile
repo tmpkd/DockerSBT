@@ -18,10 +18,10 @@ RUN rm sbt-$SBT_VERSION.deb
 # Install and clean
 RUN apt-get update
 RUN apt-get -y --no-install-recommends install docker-ce sbt
-RUN rm -rf /var/lib/apt/lists/*
+RUN apt clean
 
 # Load sbt
 RUN sbt sbtVersion
 
 # Cleaning up
-RUN rm -rf /var/lib/apt/lists/*
+RUN apt clean
